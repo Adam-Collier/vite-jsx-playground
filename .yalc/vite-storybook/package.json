@@ -1,0 +1,49 @@
+{
+  "name": "vite-storybook",
+  "version": "0.0.0+9feed27d",
+  "source": "src/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build:rollup": "rollup -c",
+    "build:esbuild": "node esbuild",
+    "yalc:publish": "node esbuild && yalc publish --push"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "keen-slider": "^5.4.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-feather": "^2.0.9",
+    "styled-components": "^5.2.3",
+    "swr": "^0.5.6"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "prettier"
+    ],
+    "extends": [
+      "react-app",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "trailingComma": "es5",
+          "singleQuote": true
+        }
+      ]
+    }
+  },
+  "yalcSig": "9feed27d826442f1a815f3d1c27c4366"
+}

@@ -1,0 +1,109 @@
+:root {
+  --background: #0f0f0f;
+  --resizer-width: 1rem;
+  --resizer-spacing: -3px;
+  --border-color: #222;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+.Resizer {
+  background: var(--background);
+  z-index: 1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.Resizer:hover {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+.Resizer:after,
+.Resizer:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #3c3c3c;
+}
+
+.Resizer.horizontal:before,
+.Resizer.horizontal:after {
+  transform: translateX(-50%);
+  width: 30px;
+  height: 1px;
+}
+
+.Resizer.horizontal:before {
+  margin-top: var(--resizer-spacing);
+}
+
+.Resizer.horizontal:after {
+  margin-bottom: var(--resizer-spacing);
+}
+
+.Resizer.vertical:before,
+.Resizer.vertical:after {
+  transform: translateY(-50%);
+  height: 30px;
+  width: 1px;
+}
+
+.Resizer.vertical:before {
+  margin-left: var(--resizer-spacing);
+}
+
+.Resizer.vertical:after {
+  margin-right: var(--resizer-spacing);
+}
+
+.Resizer.horizontal {
+  height: var(--resizer-width);
+  cursor: row-resize;
+  width: 100%;
+}
+
+.Resizer.vertical {
+  width: var(--resizer-width);
+  cursor: col-resize;
+}
+
+.Resizer.disabled {
+  cursor: not-allowed;
+}
+
+.Resizer.disabled:hover {
+  border-color: transparent;
+}

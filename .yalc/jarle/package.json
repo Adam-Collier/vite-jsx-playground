@@ -1,0 +1,58 @@
+{
+  "name": "jarle",
+  "version": "1.2.2+99db572d",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jquense/jarle.git"
+  },
+  "author": "Jason Quense <monastic.panic@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "add-import": "sed -i '' 's/__IMPORT__/(s) => import(\\/\\* webpackIgnore: true \\*\\/ \\/\\* @vite-ignore \\*\\/ s)/' ./{lib,esm}/Provider.js",
+    "build": "4c build src && yarn add-import && node ./build-themes.js",
+    "prepublishOnly": "yarn run build",
+    "tdd": "jest --watch",
+    "test": "jest"
+  },
+  "files": [
+    "esm",
+    "lib",
+    "themes"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "jest": {
+    "preset": "@4c/jest-preset",
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "./test/setup.ts"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@restart/hooks": "^0.3.26",
+    "@types/classnames": "^2.2.9",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-is": "^17.0.0",
+    "acorn": "^8.1.0",
+    "acorn-jsx": "^5.2.0",
+    "classnames": "^2.2.6",
+    "magic-string": "^0.25.6",
+    "prism-react-renderer": "^1.2.0",
+    "prop-types": "^15.7.2",
+    "react-is": "^17.0.2",
+    "react-simple-code-editor": "^0.11.0",
+    "sourcemap-codec": "^1.4.8"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.6",
+    "react-dom": ">=16.8.6"
+  },
+  "yalcSig": "99db572dafea6334c7d6778892bf0fbb"
+}

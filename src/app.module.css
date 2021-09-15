@@ -1,0 +1,53 @@
+.app {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  overflow: hidden;
+  display: flex;
+}
+
+.wrapper {
+  position: relative;
+  width: calc(100% - 1.5rem);
+  height: calc(100% - 1.5rem);
+  margin: 0.75rem 0.75rem 0.75rem 0;
+}
+
+.editor {
+  grid-area: editor;
+}
+
+.editor,
+.preview,
+.error {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.error {
+  grid-area: error;
+  color: #fff;
+}
+
+.error pre {
+  white-space: pre-wrap;
+  margin: 0;
+  padding: 1rem;
+}
+
+.preview {
+  grid-area: preview;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  overflow-y: scroll;
+  height: calc(100% - 2rem);
+}
